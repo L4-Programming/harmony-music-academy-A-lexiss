@@ -2,6 +2,7 @@
 // Include input fields for the user's email address, level, and hours of study @@
 import { validateForm } from "./validateForm.js";
 import { calculateCosts } from "./calculateCost.js";
+import { displayResults } from "./displayResults.js";
 
 // Capture user's input on form submission
 let form = document.querySelector("form");
@@ -19,13 +20,11 @@ form.addEventListener("submit", function (event) {
   // Validate the user's input
   const result = validateForm({ userEmail, userLevel, userHours });
 
-  console.log({ result });
-
   if (result) {
     // Calculate the total cost
     const output = calculateCosts(result);
 
-    console.log({ output });
+    displayResults(output);
   }
   // return{
   // userEmail
